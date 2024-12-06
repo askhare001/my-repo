@@ -1,0 +1,41 @@
+package com.example.demo;
+
+import java.util.List;
+
+import org.assertj.core.util.Arrays;
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.web.servlet.MockMvc;
+
+import com.example.demo.pojo.Doctor;
+import com.example.demo.repo.DoctorRepo;
+
+
+
+@SpringBootTest
+@AutoConfigureMockMvc
+class DoctorFindAllApplicationTests {
+
+	
+	private MockMvc mockMvc;
+	
+	@MockBean
+	private DoctorRepo doctorRepo;
+
+	@Test
+	void contextLoads() {
+	}
+	
+	@Test
+	public void testFindAllDoctorsByHosId() throws Exception{
+		Doctor doctor1=new Doctor(1,"Dave Smith","Cardio",101);
+		Doctor doctor2=new Doctor(2,"Jenna New","Neuro",101);
+		
+		List<Doctor> doctors=Arrays.asList(doctor1,doctor2);
+		
+		when (doctorRepo.findByHospitalId(101)).thenReturn(doctors);
+	}
+
+}

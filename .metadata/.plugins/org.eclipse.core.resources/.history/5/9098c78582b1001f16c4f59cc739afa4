@@ -1,0 +1,11 @@
+spring.application.name=microservice1
+
+spring.config.import=configserver://localhost:8888
+server.port=8080
+
+custom.message=welcome
+
+#Microservice1.name=abc
+#Microservice1.phoneNo=12345
+
+

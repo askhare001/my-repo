@@ -1,0 +1,25 @@
+package com.example.demo.controller;
+@RestController
+public class HospitalController {
+	@Auto
+	HospitalRepos hospitarepo
+	
+	@GetMapping("/hospitals/{hospitalId}")
+	Resp<hospital >findalldoctorsinhospital(@path int hospitalId) {
+		
+		List<Doctor> doctors=new ArrayList<>
+		
+	hos hos=	hosrepo.findhosbyid
+	hos.setdo()
+	
+	if hos!=null
+	
+	return new resend(hos,ok)
+			
+	else
+		ret new resene<>(nocon)
+		
+		
+	}
+
+}

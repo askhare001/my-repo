@@ -1,0 +1,6 @@
+spring.application.name=Microservice1
+
+custom.message=welcome
+
+Microservice1.name=abc
+Microservice1.phoneNo=12345

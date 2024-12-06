@@ -1,0 +1,30 @@
+package com.example.demo.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.example.demo.dao.DoctorDAO;
+import com.example.demo.pojo.Doctor;
+
+@RestController
+public class DoctorController {
+
+	@Autowired
+	DoctorDAO doctorDAO;
+	
+	@PostMapping("/doctors")
+	public Doctor createNewDoctor(@Requ Doct doc) throws DoctorAlready
+	{
+		int added=0;
+		
+		added=doctorDAO.addDoctor(doctor);
+				
+				if(added)
+				{
+					
+				}
+				else
+				{
+					
+				}
+	}
+}

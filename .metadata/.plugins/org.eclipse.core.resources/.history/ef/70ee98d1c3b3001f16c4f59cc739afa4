@@ -1,0 +1,57 @@
+package com.example.demo.controller;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.demo.pojo.Customer;
+import com.example.demo.pojo.Doctor;
+import com.example.demo.repo.DoctorRepo;
+
+@RestController
+public class UpdateDoctorController {
+
+	@Autowired
+	DoctorRepo doctorRepo;
+
+    @DeleteMapping("/doctors/{doctorId}")
+    public ResponseEntity<Void> deleteDoctor(@PathVariable int doctorId) {
+    	Optional<Doctor> doctors;
+   	  
+   	  doctors=doctorRepo.findById(doctorId);
+   	  
+        if (doctors.isPresent()) {
+        	  doctorRepo.deleteById(doctorId);
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+    
+    
+    @PutMapping("/doctors/{doctorId}")
+    public ResponseEntity<Doctor> updateDoctor(@PathVariable int doctorId, @RequestBody Doctor updatedDoctor) {
+        Optional<Doctor> existingDoctor = doctorRepo.findById(doctorId);
+
+        if (existingDoctor.isPresent()) {
+        	Doctor doctor = existingDoctor.get();
+            if (updatedDoctor.getDoctorName()!= null) {
+            	doctor.setDoctorName(updatedDoctor.getDoctorName());
+            }
+            if (updatedDoctor.getSpecialization()!= null) {
+            	doctor.setSpecialization(updatedDoctor.getSpecialization());
+            }
+            doctorRepo.save(doctor);
+
+            return ResponseEntity.ok(doctor);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+}

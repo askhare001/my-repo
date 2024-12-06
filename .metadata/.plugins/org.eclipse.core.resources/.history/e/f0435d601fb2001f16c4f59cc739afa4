@@ -1,0 +1,52 @@
+package com.example.demo.controller;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.demo.pojo.Doctor;
+import com.example.demo.repo.DoctorRepo;
+
+@RestController
+public class FindDoctorController {
+
+	@Autowired
+	DoctorRepo doctorRepo;
+	
+	@GetMapping("/doctors")
+	List<Doctor>findAllDoctor() 
+	
+	
+	{
+		List<Doctor> optional= doctorRepo.findAll();
+		return optional;
+		
+		
+		
+	}
+	
+	@GetMapping("/doctors/{hospitalId}")
+	public ResponseEntity <List<Doctor>> findAllDoctorsByHospitalId(@PathVariable int hospitalId)
+	{
+		
+		        List<Doctor> doctors=new ArrayList<>();
+				
+				doctors=doctorRepo.findbyhospitalId(hospitalId);
+				
+				if (doctors.size()>0)
+				{
+					
+					return new ResponseEntity <List<Doctor>>(doctors,HttpStatus.OK);
+				}
+		
+				return new ResponseEntity <List<Doctor>>(HttpStatus.NO_CONTENT);
+		
+	}
+}

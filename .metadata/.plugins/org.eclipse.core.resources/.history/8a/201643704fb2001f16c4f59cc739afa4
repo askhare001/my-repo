@@ -1,0 +1,95 @@
+package com.example.demo.controller;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
+import org.springframework.context.annotation.Bean;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
+
+import com.example.demo.feign.HospitalDoctorFeign;
+import com.example.demo.pojo.Doctor;
+import com.example.demo.pojo.Hospital;
+import com.example.demo.repo.HospitalRepository;
+
+@RestController
+public class HospitalController {
+	
+	@Autowired
+	HospitalRepository hospitalRepository;
+	
+	@Autowired
+	HospitalDoctorFeign hospitalDoctorFeign;
+	
+	@Bean
+	@LoadBalanced
+	public RestTemplate restTemplate() {
+	    return new RestTemplate();
+	}
+	
+	@GetMapping("/hospitals/{hospitalId}")
+	ResponseEntity<Hospital>findalldoctorsinhospital(@PathVariable int hospitalId) {
+		
+		List<Doctor> doctors=new ArrayList<>();
+		
+		Hospital hospital=	hospitalRepository.findHospitalById(hospitalId);
+		//hospital.setDoctors(doctors);
+		
+		if (hospital != null) {
+	        RestTemplate restTemplate = restTemplate(); 
+	        ResponseEntity<Doctor[]> entity = restTemplate.getForEntity(
+	            "http://find-doctor-all/doctors/{hospitalId}",
+	            Doctor[].class,
+	            hospitalId
+	        );
+
+	        hospital.setDoctors(Arrays.asList(entity.getBody()));
+	        return new ResponseEntity<>(hospital, HttpStatus.OK);
+	    } 
+		else {
+	        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+	    }
+	
+		/*
+		 * if (hospital!=null) {
+		 * 
+		 * RestTemplate restTemplate= new RestTemplate();
+		 * 
+		 * ResponseEntity<Doctor[]> entity=restTemplate.getForEntity(
+		 * "http://localhost:8084/doctors/{hospitalId}", Doctor[].class,hospitalId);
+		 * hospital.setDoctors(Arrays.asList(entity.getBody())); return new
+		 * ResponseEntity<Hospital>(hospital,HttpStatus.OK); }
+		 * 
+		 * else { return new ResponseEntity<Hospital>(HttpStatus.NO_CONTENT); }
+		 */
+	
+	
+}
+	@GetMapping("/hospitals-feign/{hospitalId}")
+	ResponseEntity<Hospital>findAllDoctorsInhospitalFeign(@PathVariable int hospitalId) {
+		List<Doctor> doctors=new ArrayList<>();
+		
+		Hospital hospital=	hospitalRepository.findHospitalById(hospitalId);
+	
+		ResponseEntity<List<Doctor>> entity = hospitalDoctorFeign.findAllDoctorsByHospitalId(hospitalId);
+        
+        if (entity.getBody() != null) {
+            hospital.setDoctors(entity.getBody());
+        } else {
+            hospital.setDoctors(new ArrayList<>()); 
+        }
+
+        return new ResponseEntity<>(hospital, HttpStatus.OK);
+    
+
+}
+}
+
+

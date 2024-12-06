@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="HospitalFindDoctorsApplicationTests" project="HospitalFindDoctors" tests="2" started="2" failures="0" errors="0" ignored="0">
+  <testsuite name="com.example.demo.HospitalFindDoctorsApplicationTests" time="0.316" displayname="HospitalFindDoctorsApplicationTests" uniqueid="[engine:junit-jupiter]/[class:com.example.demo.HospitalFindDoctorsApplicationTests]">
+    <testcase name="contextLoads" classname="com.example.demo.HospitalFindDoctorsApplicationTests" time="0.055" displayname="contextLoads()" uniqueid="[engine:junit-jupiter]/[class:com.example.demo.HospitalFindDoctorsApplicationTests]/[method:contextLoads()]"/>
+    <testcase name="testFindAllDoctorsInHospital" classname="com.example.demo.HospitalFindDoctorsApplicationTests" time="0.259" displayname="testFindAllDoctorsInHospital()" uniqueid="[engine:junit-jupiter]/[class:com.example.demo.HospitalFindDoctorsApplicationTests]/[method:testFindAllDoctorsInHospital()]"/>
+  </testsuite>
+</testrun>

@@ -1,0 +1,25 @@
+package com.example.demo.dao;
+
+import com.example.demo.pojo.Doctor;
+
+public class DoctorDAOOmpl implements DoctorDAO {
+@JdbcTempalte @JdbcTempalte
+	@Override
+	public int addDoctor(Doctor doctor) {
+		// TODO Auto-generated method stub
+	int added=0;
+	String insertDoc="insert into doctor_new values(?,?)"
+			try {
+			added=jdb.update(insert_doctor, doctor.getDoctorId())
+			}
+	catch
+	{
+		System.out.println(e.getMessage());
+		throw new DoctorAlreadyExistsException("Record exists!!");
+	}
+		return added;
+	}
+	
+	
+
+}

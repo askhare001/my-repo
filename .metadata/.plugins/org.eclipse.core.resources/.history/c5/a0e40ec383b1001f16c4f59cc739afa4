@@ -1,0 +1,5 @@
+spring.application.name=Microservice2
+spring.config.import=onfigserver://localhost:8888
+
+microservice1.name=abc
+microservice1.phoneno=12345

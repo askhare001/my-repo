@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="DoctorFindAllApplicationTests" project="DoctorFindAll" tests="2" started="2" failures="0" errors="1" ignored="0">
+  <testsuite name="com.example.demo.DoctorFindAllApplicationTests" time="0.002" displayname="DoctorFindAllApplicationTests" uniqueid="[engine:junit-jupiter]/[class:com.example.demo.DoctorFindAllApplicationTests]">
+    <testcase name="testFindAllDoctorsByHosId" classname="com.example.demo.DoctorFindAllApplicationTests" time="0.001" displayname="testFindAllDoctorsByHosId()" uniqueid="[engine:junit-jupiter]/[class:com.example.demo.DoctorFindAllApplicationTests]/[method:testFindAllDoctorsByHosId()]">
+      <error>java.lang.NullPointerException: Cannot invoke "org.springframework.test.web.servlet.MockMvc.perform(org.springframework.test.web.servlet.RequestBuilder)" because "this.mockMvc" is null&#13;
+	at com.example.demo.DoctorFindAllApplicationTests.testFindAllDoctorsByHosId(DoctorFindAllApplicationTests.java:48)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="contextLoads" classname="com.example.demo.DoctorFindAllApplicationTests" time="0.0" displayname="contextLoads()" uniqueid="[engine:junit-jupiter]/[class:com.example.demo.DoctorFindAllApplicationTests]/[method:contextLoads()]"/>
+  </testsuite>
+</testrun>

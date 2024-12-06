@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="HospitalFindDoctorsApplicationTests" project="HospitalFindDoctors" tests="2" started="2" failures="1" errors="0" ignored="0">
+  <testsuite name="com.example.demo.HospitalFindDoctorsApplicationTests" time="0.359" displayname="HospitalFindDoctorsApplicationTests" uniqueid="[engine:junit-jupiter]/[class:com.example.demo.HospitalFindDoctorsApplicationTests]">
+    <testcase name="contextLoads" classname="com.example.demo.HospitalFindDoctorsApplicationTests" time="0.028" displayname="contextLoads()" uniqueid="[engine:junit-jupiter]/[class:com.example.demo.HospitalFindDoctorsApplicationTests]/[method:contextLoads()]"/>
+    <testcase name="testFindAllDoctorsInHospital" classname="com.example.demo.HospitalFindDoctorsApplicationTests" time="0.329" displayname="testFindAllDoctorsInHospital()" uniqueid="[engine:junit-jupiter]/[class:com.example.demo.HospitalFindDoctorsApplicationTests]/[method:testFindAllDoctorsInHospital()]">
+      <failure>java.lang.AssertionError: No value at JSON path "$.id"&#13;
+	at org.springframework.test.util.JsonPathExpectationsHelper.evaluateJsonPath(JsonPathExpectationsHelper.java:351)&#13;
+	at org.springframework.test.util.JsonPathExpectationsHelper.assertValue(JsonPathExpectationsHelper.java:106)&#13;
+	at org.springframework.test.web.servlet.result.JsonPathResultMatchers.lambda$value$0(JsonPathResultMatchers.java:88)&#13;
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:214)&#13;
+	at com.example.demo.HospitalFindDoctorsApplicationTests.testFindAllDoctorsInHospital(HospitalFindDoctorsApplicationTests.java:62)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: com.jayway.jsonpath.PathNotFoundException: No results for path: $['id']&#13;
+&#13;
+</failure>
+    </testcase>
+  </testsuite>
+</testrun>

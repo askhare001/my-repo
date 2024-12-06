@@ -1,0 +1,73 @@
+package com.example.demo.pojo;
+
+import jakarta.persistence.*; // JPA annotations (use javax.persistence for older Java versions)
+
+@Entity
+@Table(name = "doctor_new") // Maps this entity to the "doctor_new" table
+public class Doctor {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-increment for primary key
+    @Column(name = "doctor_id") // Maps to the "doctor_id" column
+    private int doctorId;
+
+    @Column(name = "doctor_name", nullable = false, length = 100) // Maps to the "doctor_name" column
+    private String doctorName;
+
+    @Column(name = "specialization", nullable = false, length = 50) // Maps to the "specialization" column
+    private String specialization;
+
+    @Column(name = "hospital_id", nullable = false) // Maps to the "hospital_id" column
+    private int hospitalId;
+
+    // Default constructor
+    public Doctor() {}
+
+    // Parameterized constructor
+    public Doctor(int doctorId, String doctorName, String specialization, int hospitalId) {
+        this.doctorId = doctorId;
+        this.doctorName = doctorName;
+        this.specialization = specialization;
+        this.hospitalId = hospitalId;
+    }
+
+    // Getters and setters
+    public int getDoctorId() {
+        return doctorId;
+    }
+
+    public void setDoctorId(int doctorId) {
+        this.doctorId = doctorId;
+    }
+
+    public String getDoctorName() {
+        return doctorName;
+    }
+
+    public void setDoctorName(String doctorName) {
+        this.doctorName = doctorName;
+    }
+
+    public String getSpecialization() {
+        return specialization;
+    }
+
+    public void setSpecialization(String specialization) {
+        this.specialization = specialization;
+    }
+
+    public int getHospitalId() {
+        return hospitalId;
+    }
+
+    public void setHospitalId(int hospitalId) {
+        this.hospitalId = hospitalId;
+    }
+
+    // Override toString
+    @Override
+    public String toString() {
+        return "Doctor [doctorId=" + doctorId + ", doctorName=" + doctorName + 
+               ", specialization=" + specialization + ", hospitalId=" + hospitalId + "]";
+    }
+}

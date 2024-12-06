@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>.BndtoolsJAREditorTempFiles</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+	</buildSpec>
+	<natures>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>temp/10000001/DoctorFindAll-0.0.1-SNAPSHOT.jar</name>
+			<type>2</type>
+			<locationURI>jarf:///file:/C:/Users/Student/Documents/workspace-spring-tool-suite-4-4.26.0.RELEASE/DoctorFindAll/target/DoctorFindAll-0.0.1-SNAPSHOT.jar!/</locationURI>
+		</link>
+	</linkedResources>
+</projectDescription>

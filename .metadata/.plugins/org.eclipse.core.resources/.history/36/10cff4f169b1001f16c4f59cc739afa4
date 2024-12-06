@@ -1,0 +1,10 @@
+package com.example.demo.pojo;
+
+public class Hospital {
+	
+	int hosregid
+	string hospname
+	string address
+	List<Doctor> doctors;
+
+}

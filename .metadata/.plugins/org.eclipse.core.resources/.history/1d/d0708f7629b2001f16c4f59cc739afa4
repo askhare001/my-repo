@@ -1,0 +1,11 @@
+package com.example.demo.feign;
+
+import org.springframework.cloud.openfeign.FeignClient;
+
+@FeignClient(name="find-doctor-all",url="http://localhost:8084")
+public interface HospitalDoctorFeign {
+	
+	@GetMapping(value="/doctors/{hospitalId}")
+	public ResponseEntity<List<Doctor>> findAllDoctor(@parh  )
+
+}

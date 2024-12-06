@@ -1,0 +1,8 @@
+spring.application.name=microservice4
+server.port=8091
+
+
+
+#spring.config.import=configserver:http://localhost:8888
+
+#spring.profiles.active=prod

@@ -1,0 +1,16 @@
+package com.example.demo.pojo;
+
+public class Doctor {
+
+	private int doctorId;
+	private String doctorName;
+	private String spec;
+	private int hospitalId;
+	
+	public Doctor()
+	
+	{
+		
+	}
+			
+}

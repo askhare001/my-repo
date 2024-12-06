@@ -1,0 +1,17 @@
+package com.example.demo.exception;
+
+import org.springframework.web.bind.annotation.ResponseStatus;
+
+@ResponseStatus
+public class CustomerException extends RuntimeException {
+	
+	public  CustomerException(String message) {
+		super(message);
+	}
+	public  CustomerException(String message,Throwable cause) {
+		super(message,cause);
+	}
+	
+	
+
+}

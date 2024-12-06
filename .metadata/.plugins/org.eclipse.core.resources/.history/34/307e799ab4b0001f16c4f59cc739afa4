@@ -1,0 +1,23 @@
+package com.example.demo.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.demo.pojo.Customer;
+import com.example.demo.repository.CustomerRepository;
+
+@RestController
+@RequestMapping("/api/customers")
+public class CustomerController {
+	@Autowired
+	CustomerRepository customerRepository;
+	
+	public List<Customer> getAllCustomers()
+	{
+		return customerRepository.findAll();
+	}
+
+}
